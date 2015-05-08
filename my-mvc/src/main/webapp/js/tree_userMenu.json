@@ -1,0 +1,26 @@
+[{
+	"id":1,
+	"text":"用户管理",
+		"children":[{
+			"text":"添加用户",
+			"url":"user-add",
+			"iconCls":"icon-add"
+		},{
+			"text":"查询用户",
+			"url":"user-list",
+			"iconCls":"icon-search"
+		},{
+			"text":"个人信息",
+			"url":"",
+			"iconCls":"icon-info"
+		}]
+	
+},{
+	"id":2,
+	"text":"订单管理",
+		"children":[{
+			"text":"订单列表",
+			"url":"user-add"
+		}]
+	
+}]

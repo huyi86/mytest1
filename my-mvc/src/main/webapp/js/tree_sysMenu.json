@@ -1,0 +1,16 @@
+[{
+	"id":3,
+	"text":"系统管理",
+	
+		"children":[{
+			"text":"权限列表",
+			"url":"auth-list"
+		},{
+			"text":"角色管理",
+			"url":"role-list"
+		},{
+			"text":"用户授权",
+			"url":"role-auth"
+		}]
+	
+}]

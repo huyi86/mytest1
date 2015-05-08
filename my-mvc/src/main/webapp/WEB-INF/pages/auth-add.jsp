@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>添加用户</title>
+<script type="text/javascript">
+$(function(){
+	$('#cc').combo({
+		required:true,
+		editable:false
+	});
+	$('#sp').appendTo($('#cc').combo('panel'));
+	$('#sp input').click(function(){
+		var v = $(this).val();
+		var s = $(this).next('span').text();
+		$('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
+	});
+	
+
+});
+</script>
+</head>
+<body>
+
+	<div style="padding: 10px 60px 20px 60px">
+		<form id="ff" method="post">
+			<table cellpadding="5">
+				<tr>
+					<td>CODE:</td>
+					<td><input class="easyui-textbox" type="text" name="code"
+						data-options="required:true"></input></td>
+				</tr>
+				<tr>
+					<td>名称:</td>
+					<td><input class="easyui-textbox" type="text" name="name"
+						data-options="required:true"></input></td>
+				</tr>
+				<tr>
+					<td>访问地址:</td>
+					<td><input class="easyui-textbox" type="text" name="url"
+						data-options="required:true"></input></td>
+				</tr>
+				<tr>
+					<td>优先级:</td>
+					<td><input class="easyui-textbox" name="sort" type="text" data-options="required:true"></input></td>
+				</tr>
+				<tr>
+					<td>权限类型:</td>
+					<td>
+					<select name="type" class="easyui-combobox" data-options="required:true,panelHeight:90">
+						<option value="0">菜单权限</option>
+						<option value="1" checked="checked">功能权限</option>
+						<option value="2">数据权限</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>父权限:</td>
+					<td><select name="pid" id="parent_list" class="easyui-combotree" style="width:200px;"   
+        				data-options="url:'/auth/treeList',required:true,checkbox:true"></select>  
+        			</td>
+				</tr>
+				
+			</table>
+		</form>
+		<div style="text-align: left; padding: 10px">&nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)" class="easyui-linkbutton"
+				onclick="submitForm()">提交</a> &nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)"
+				class="easyui-linkbutton" onclick="clearForm()">清空</a>
+		</div>
+	</div>
+	<script>
+		function submitForm() {
+			if(!$("#ff").form("validate")){
+				$.messager.alert('提示','表单未填写完整!');
+				return;
+			}
+			$.post("/auth/save",$('#ff').serialize(),function(data){
+				$.messager.alert('提示',data.msg);
+			});
+		}
+		function clearForm() {
+			$('#ff').form('clear');
+		}
+	</script>
+</body>
+</html>
