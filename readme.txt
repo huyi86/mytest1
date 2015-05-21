@@ -1,2 +1,2 @@
-hello , this is a test file!
-I have changed the file..
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
