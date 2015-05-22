@@ -50,6 +50,7 @@
 				$.messager.alert('提示','表单未填写完整!');
 				return;
 			}
+			var data = $('#editForm').serialize();
 			$.post("/user/edit",data,function(data){
 				$.messager.alert('提示',data.msg,'',function(){
 					if(data.status==200){

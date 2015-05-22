@@ -6,11 +6,14 @@
 			"text":"权限列表",
 			"url":"auth-list"
 		},{
-			"text":"角色管理",
+			"text":"角色列表",
 			"url":"role-list"
 		},{
+			"text":"添加角色",
+			"url":"role-add"
+		},{
 			"text":"用户授权",
-			"url":"role-auth"
+			"url":"user-role"
 		}]
 	
 }]

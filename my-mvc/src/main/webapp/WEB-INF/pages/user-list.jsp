@@ -14,7 +14,7 @@
 		<thead>
 			<tr>
 				<th data-options="field:'id',width:70,align:'center'" >ID</th>
-				<th data-options="field:'userName',width:80,align:'center'">CODE</th>
+				<th data-options="field:'code',width:80,align:'center'">CODE</th>
 				<th data-options="field:'name',width:80,align:'center'">姓名</th>
 				<th data-options="field:'sex',width:80,align:'center'">电话</th>
 				<th data-options="field:'age',width:60,align:'center'">邮箱</th>
@@ -116,7 +116,9 @@
 
 		});
 		function formatDate(value,row){
-			return new Date(value).format("yyyy-MM-dd hh:mm:ss")
+			if(value)
+				return new Date(value).format("yyyy-MM-dd hh:mm:ss")
+				return "";
 		};
 	</script>
 </body>

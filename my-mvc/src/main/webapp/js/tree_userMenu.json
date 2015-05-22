@@ -20,7 +20,7 @@
 	"text":"订单管理",
 		"children":[{
 			"text":"订单列表",
-			"url":"user-add"
+			"url":"order-list"
 		}]
 	
 }]

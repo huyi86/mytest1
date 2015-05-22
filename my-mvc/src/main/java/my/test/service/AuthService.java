@@ -29,6 +29,16 @@ public class AuthService {
 		List<Authority> list = authMapper.selectAuthByPid(pid);
 		return  list;
 	}
+
+
+    public void saveAuth(Authority auth) {
+        authMapper.insertSelective(auth);
+    }
+
+
+    public List<Authority> findAuthByRole(Long id) {
+        return authMapper.selectAuthByRole(id);
+    }
 	
 	
 }

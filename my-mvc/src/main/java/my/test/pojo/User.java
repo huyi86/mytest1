@@ -1,18 +1,24 @@
 package my.test.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class User {
-    private Long id;
+public class User implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
     private String code;
     private String name;
     private String password;
     private String mobile;
     private String email;
     private Long deptId;
-
+    //用户角色，可能有多个
     private List<Role> roles;
+    //用户组，可能有多个
     private List<Group> groups;
     
     private String state;

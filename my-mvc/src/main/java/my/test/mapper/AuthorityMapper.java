@@ -55,4 +55,6 @@ public interface AuthorityMapper {
 
 	List<Authority> selectAll();
 	List<Authority> selectAuthByPid(Long id);
+
+    List<Authority> selectAuthByRole(Long id);
 }

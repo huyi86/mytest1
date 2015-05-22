@@ -5,22 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>添加用户</title>
-<script type="text/javascript">
-$(function(){
-	$('#cc').combo({
-		required:true,
-		editable:false
-	});
-	$('#sp').appendTo($('#cc').combo('panel'));
-	$('#sp input').click(function(){
-		var v = $(this).val();
-		var s = $(this).next('span').text();
-		$('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
-	});
-	
 
-});
-</script>
 </head>
 <body>
 
@@ -39,12 +24,11 @@ $(function(){
 				</tr>
 				<tr>
 					<td>访问地址:</td>
-					<td><input class="easyui-textbox" type="text" name="url"
-						data-options="required:true"></input></td>
+					<td><input class="easyui-textbox" type="text" name="url" ></input></td>
 				</tr>
 				<tr>
 					<td>优先级:</td>
-					<td><input class="easyui-textbox" name="sort" type="text" data-options="required:true"></input></td>
+					<td><input class="easyui-numberbox" name="sort" type="text" data-options="required:true"></input></td>
 				</tr>
 				<tr>
 					<td>权限类型:</td>
@@ -59,7 +43,7 @@ $(function(){
 				<tr>
 					<td>父权限:</td>
 					<td><select name="pid" id="parent_list" class="easyui-combotree" style="width:200px;"   
-        				data-options="url:'/auth/treeList',required:true,checkbox:true"></select>  
+        				data-options="url:'/auth/treeList'"></select>  
         			</td>
 				</tr>
 				

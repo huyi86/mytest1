@@ -9,13 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="/themes/icon.css">
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="/js/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="/js/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body> 
 	<div style="margin:20px 0;"></div>
 	<div class="easyui-panel" title="New Topic" style="width:400px">
 		<div style="padding:10px 60px 20px 60px">
-	    <form id="ff" method="post" action="/user/login">
+	    <form id="login_ff" method="post" action="/user/login">
 	    	<table cellpadding="5">
 	    		<tr>
 	    			<td>用户名:</td>
@@ -30,7 +30,6 @@
 	    <div style="text-align:center;padding:5px">
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">登录</a>
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">清空</a>
-	    	<a href="${pageContext.request.contextPath }/page/register" class="easyui-linkbutton" >去注册</a>
 	    </div>
 	    </div>
 	   <span id="error"></span>
@@ -45,7 +44,7 @@
 	</style>
 	<script>
 		function submitForm(){
-			$('#ff').form('submit',{success:function(data){
+			$('#login_ff').form('submit',{success:function(data){
 				if(JSON.parse(data).status==200){
 					window.location.href="/page/index";
 				}else{
@@ -54,7 +53,7 @@
 			}});
 		}
 		function clearForm(){
-			$('#ff').form('clear');
+			$('#login_ff').form('clear');
 		}
 	</script>
 </body>

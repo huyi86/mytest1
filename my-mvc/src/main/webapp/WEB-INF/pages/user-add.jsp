@@ -52,6 +52,7 @@
 			$.post("/user/save",$('#ff').serialize(),function(data){
 				$.messager.alert('提示',data.msg);
 			});
+			
 		}
 		function clearForm() {
 			$('#ff').form('clear');

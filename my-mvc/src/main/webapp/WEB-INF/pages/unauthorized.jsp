@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>对不起，您没有登录哦。。。</h1>
-	<a href="/page/login">赶快去登录吧！</a>
+	<h1>对不起，您没有权限哦。。。</h1>
+	<a href="/page/login">切换其它账户登录吧！</a>
 </body>
 </html>

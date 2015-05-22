@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans 
+    	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
+    	http://www.springframework.org/schema/context 
+    	http://www.springframework.org/schema/context/spring-context-3.2.xsd"> 
+ 
+		<bean id="memcachedManager" class="my.test.util.memcached.impl.MemcachedManagerImpl" init-method="init" lazy-init="false"> 
+		<!-- <property name="servers"> 
+			<list>  
+                <value>${memcached.n1}</value>
+                <value>${memcached.n2}</value>                  
+            </list> 
+		</property>
+		<property name="initConn"> 
+			<value>${memcached.initConn}</value>
+		</property> 
+		<property name="minConn"> 
+			<value>${memcached.minConn}</value>
+		</property> 
+		<property name="maxConn"> 
+			<value>${memcached.maxConn}</value>
+		</property>  -->
+		
+		<property name="servers"> 
+			<list>  
+                <value>192.168.37.12:11211</value>
+                <value>192.168.37.12:11211</value>       
+                <!-- <value>mem.public.a:12000</value>        
+                <value>mem.public.a:12000</value> -->        
+            </list> 
+		</property>
+		<property name="initConn"> 
+			<value>10</value>
+		</property> 
+		<property name="minConn"> 
+			<value>10</value>
+		</property> 
+		<property name="maxConn"> 
+			<value>100</value>
+		</property> 
+	</bean>
+	
+</beans>

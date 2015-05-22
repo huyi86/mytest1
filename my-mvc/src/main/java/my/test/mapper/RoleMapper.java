@@ -1,5 +1,9 @@
 package my.test.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import my.test.pojo.Role;
 
 public interface RoleMapper {
@@ -50,4 +54,10 @@ public interface RoleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Role record);
+
+    List<Role> selectAll();
+
+
+    void saveAuthsInRole(@Param("rid")Long rid,@Param("aid")Long aid);
+
 }

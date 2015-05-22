@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-@Service
+@Service("userService")
 public class UserService{
 	@Autowired
 	private UserMapper userMapper;
@@ -26,5 +26,16 @@ public class UserService{
 		return  new PageInfo<User>(list);
 
 	}
+
+    public void addRole(Long id, String ids) {
+        String[] rids = ids.split(",");
+        for (String rid : rids) {
+            userMapper.insertUserRole(id,rid);
+        }
+    }
+
+    public User findUserByUsername(String code) {
+        return userMapper.selectUserByCode(code);
+    }
 	
 }

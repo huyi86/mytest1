@@ -1,25 +1,26 @@
 package my.test.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Authority {
-    private Long id;
+public class Authority implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
     private String code;
     private String name;
     private String url;
+    //菜单优先级
     private Integer sort;
     //父权限
     private Long pid;
+    //权限类型（0 菜单，1权限，2数据）
     private Integer type;
-    
-    
-
-	//子权限
-    List<Authority> authorities; 
     
     private String createUser;
     private Date createTime;
@@ -47,13 +48,6 @@ public class Authority {
 	}
 	public void setPid(Long pid) {
 		this.pid = pid;
-	}
-	public List<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authority> authorities) {
-		this.authorities = authorities;
 	}
 
 	/**

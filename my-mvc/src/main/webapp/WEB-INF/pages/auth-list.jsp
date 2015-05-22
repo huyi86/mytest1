@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table class="easyui-datagrid" style="width: 100%;" id="dg"
+	<table class="easyui-datagrid" style="width: 100%;" id="dg_auth"
 		data-options="rownumbers:true,pagination:true,
 		url:'/auth/listAll',border:false,
-		method:'get',toolbar:'#tb',footer:'#ft'">
+		method:'get',toolbar:'#tb_auth',footer:'#ft'">
 		<thead>
 			<tr>
+				<th data-options="field:'id',width:70,align:'center'" >ID</th>
 				<th data-options="field:'code',width:70,align:'center'" >CODE</th>
 				<th data-options="field:'name',width:80,align:'center'">NAME</th>
 				<th data-options="field:'url',width:80,align:'center'">菜单地址</th>
@@ -23,8 +24,8 @@
 			</tr>
 		</thead>
 	</table>
-	<div id="tb" style="padding: 2px 5px;">
-		<a href="#" onclick="openAddWindow()" class="easyui-linkbutton" iconCls="icon-cut" plain="true">添加</a>
+	<div id="tb_auth" style="padding: 2px 5px;">
+		<a href="#" onclick="openAddWindow()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
 		<a href="#" onclick="openEditWindow()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
 		<a href="#" onclick="deleteAuth()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 	</div>
@@ -40,7 +41,7 @@
     </div>
 	<script type="text/javascript">
 		function deleteAuth(){
-			var rows = $("#dg").datagrid("getSelections");
+			var rows = $("#dg_auth").datagrid("getSelections");
 			if(!rows){
 				$.messager.alert('提示','必须选择一个权限才能删除!');
         		return ;
@@ -57,7 +58,7 @@
 				data:"["+ids.toString()+"]",
 				success:function(info){
 					$.messager.alert('提示',info.msg,'',function(){
-						$("#dg").datagrid("reload");
+						$("#dg_auth").datagrid("reload");
 					});
 				},
 				type:"POST"
@@ -69,14 +70,14 @@
 			}); */
 		}
 		function openEditWindow(){
-			var authInfo = $("#dg").datagrid("getSelected");
+			var authInfo = $("#dg_auth").datagrid("getSelected");
 			if(!authInfo){
 				$.messager.alert('提示','必须选择一行数据才能编辑!');
         		return ;
 			}
 			$('#edit_auth').window({
 				onLoad:function(){
-					$("#editForm").form("load",userInfo);
+					$("#editForm").form("load",authInfo);
 				}
 			}).window('open');
 		};
@@ -84,7 +85,7 @@
 			$('#add_auth').window('open');
 		};
 		$(function(){
-			 var pager = $('#dg').datagrid().datagrid('getPager');
+			 var pager = $('#dg_auth').datagrid().datagrid('getPager');
 			 pager.pagination({
 					buttons:[{
 						iconCls:'icon-search',
